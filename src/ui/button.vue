@@ -21,7 +21,7 @@
   
   const classes = computed(()=>{
     return {
-      "bg-indigo-700 uppercase tracking-wider p-3":true,
+      "bg-gradient-to-br from-indigo-600 to-indigo-700 uppercase tracking-wider duration-300  p-3":true,
       "w-full": props.block,
       "focus:bg-indigo-900 focus:shadow-lg":!props.loading && !props.disabled,
       "bg-slte-500":props.disabled

@@ -27,7 +27,8 @@
 
     <div class="w-full flex flex-col items-center justify-center p-3">
       <span class="text-sm">dont have an account</span>
-      <Button @click="previous" :loading="loading" block class="m-3"> create one</Button>
+      <Button @click="register" :loading="loading" block class="m-3"> create one</Button>
+      <span class="text-sm my-2 text-indigo-700" @click="previous">view accounts</span>
 
     </div>
   </div>
@@ -81,6 +82,12 @@
   function previous(){
     router.push({
       name:"previous_users"
+    })
+  }
+  
+  function register(){
+    router.push({
+      name:"register"
     })
   }
 </script>
