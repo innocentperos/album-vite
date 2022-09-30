@@ -6,24 +6,19 @@
       <span class="text-lg tracking-wider">Creating new account</span>
     </div>
     <div class="space-y-4">
-      <Input label="First Name">
-
-      </Input>
-      <Input label="Last Name">
-
-      </Input>
+      
+      <SInput :handler="firstname"/>
+      
+      <SInput :handler="lastname" />
       <div class="py-4">
 
       </div>
-      <Input label="Email Address">
+      <SInput :handler="email"/>
+      
+      <SInput :handler="username"/>
 
-      </Input>
-      <Input label="Username" message="This will be display as your unique id">
+      <SInput :handler="password"/>
 
-      </Input>
-      <Input label="Password" message="pasword most be at less 8 characters long">
-
-      </Input>
       <div class="px-3 items-center flex space-x-2 py-4 ">
         <Checkbox></Checkbox>
 
@@ -39,7 +34,21 @@
   </div>
 </template>
 <script setup>
+  import SInput from "/src/ui/super-input.vue"
   import Input from "/src/ui/input.vue"
   import Button from "/src/ui/button.vue"
   import Checkbox from "/src/ui/Checkbox.vue"
+  
+  import useInput from "/src/composables/input.js"
+  
+  import {watch} from "vue"
+  
+  const firstname = useInput("First Name","")
+  
+  const lastname = useInput("Last Name", "")
+  
+  const email = useInput("Email Address", "")
+  const username = useInput("Username","","text")
+  const password = useInput("Password","","password")
+  
 </script>
