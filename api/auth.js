@@ -16,20 +16,16 @@ function buildResponse(success, data, error){
 
 export async function Login(email, password){
   try{
-    let response =  await API.post("auth/login/", {email, password}, {
-      "content-type":"application/json"
-    })
-    console.log(response)
-    //{email,password});
+    let response =  await API.post("auth/login/", {email, password})
     
     if( response.status == 200){
-      return buildResponse(true, response, null)
+      return buildResponse(true, response.data, null)
     }else{
       return buildResponse(false, response, null)
     }
     
   }catch(error){
-    console.log(error)
+    
     if(!error.response){
       return buildResponse(false,null, NETWORK_ISSUE)
     }
