@@ -35,26 +35,27 @@
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue';
+  import { ref, onMounted } from 'vue'
   import { useStore } from "/stores/store"
   import Input from "/src/ui/input.vue"
   import Button from "/src/ui/button.vue"
   import router from "/router"
-
-
+  import {Login} from "/api/auth"
+  
+  
   const store = useStore()
 
   const name = ref("innocent")
 
   const loading = ref(false)
-  const email = ref("")
+  const email = ref("innocentperos@yahoo.com")
   const email_error = ref("")
-  const password = ref("")
+  const password = ref("admin")
   const password_error = ref("")
 
 
 
-  function login() {
+  async function login() {
     let error = false
     if (email.value == "") {
       email_error.value = 'please provide your email'
@@ -77,6 +78,10 @@
       loading.value = false
 
     }, 5000)
+    
+    const resp = await Login(email.value, password.value)
+    
+    console.log(resp)
   }
   
   function previous(){
