@@ -11,6 +11,7 @@ import SInput from "/src/ui/super-input.vue"
 import Image from "/src/ui/Image.vue"
 import Icon from "/src/ui/icon.vue"
 import IconButton from "/src/ui/IconButton.vue"
+import AppBar from "/src/ui/AppBar.vue"
 
 const pinia = createPinia()
 const app = createApp(App)
@@ -23,6 +24,6 @@ app.component("Avatar", Avatar)
 .component("Image", Image)
 .component("Icon", Icon)
 .component("IconButton", IconButton)
-
+.component("AppBar", AppBar)
 
 app.mount('#app')
