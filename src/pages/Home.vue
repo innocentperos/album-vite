@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen min-w-full pt-16 pb-16 bg-slate-100 dark:bg-slate-800">
+  <div class="min-h-screen min-w-full pt-16 pb-16 bg-slate-100 dark:bg-slate-800 relative">
     
     <AppBar back>
       

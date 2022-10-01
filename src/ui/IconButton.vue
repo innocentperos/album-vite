@@ -36,7 +36,7 @@
   })
   const classes = computed(function() {
     let classs = {
-      'h-10 ring ring-transparent aspect-square duration-300': true,
+      'min-h-10 ring ring-transparent aspect-square duration-300': true,
       'text-white bg-indigo-700 rounded-md hover:ring-indigo-800/40': !props.text,
       'text-dark dark:text-white hover:text-indigo-500 hover:dark:text-indigo-300': props.text
     }
