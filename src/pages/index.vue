@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col justify-center ">
+  <div class="w-full min-hh-full flex flex-col justify-center ">
     
     <div class="h-32 w-32 aspect-square overflow-hidden relative m-3 rounded-md shadow shadow-indigo-500/10">
       <img class="absolute h-full w-full object-cover object-center top-0 left-0 " src="/images/icon.jpg" alt="">
@@ -32,16 +32,21 @@
 
     </div>
   </div>
+  
+  <WelcomeScreen v-if="showWelcome" :user="user" :show="showWelcome" @finish="gotoHome">
+    
+  </WelcomeScreen>
+  
 </template>
 
 <script setup>
-  import { ref, onMounted } from 'vue'
+  import { ref, onMounted , computed} from 'vue'
   import { useStore } from "/stores/store"
   import Input from "/src/ui/input.vue"
   import Button from "/src/ui/button.vue"
   import router from "/router"
   import {Login} from "/api/auth"
-  
+  import WelcomeScreen from "/src/pages/index/WelcomeScreen.vue"
   
   const store = useStore()
 
@@ -54,6 +59,8 @@
   const password_error = ref("")
 
 
+  const user = ref({})
+  const showWelcome = ref(false)
 
   async function login() {
     let error = false
@@ -81,7 +88,12 @@
     
     const resp = await Login(email.value, password.value)
     
-    console.log(resp)
+    if(resp.success){
+      localStorage.setItem("token", resp.data.token)
+      
+      user.value = resp.data.user
+      showWelcome.value = true
+    }
   }
   
   function previous(){
@@ -93,6 +105,13 @@
   function register(){
     router.push({
       name:"register"
+    })
+  }
+  
+  
+  function gotoHome(){
+    router.push({
+      name:"home"
     })
   }
 </script>
