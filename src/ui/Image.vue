@@ -1,7 +1,6 @@
 <template>
-  <img v-if="ready" :src="props.src" :alt="props.alt">
+  <img v-if="ready" :src="props.src" :alt="props.alt" >
   <div v-else class="h-full w-full bg-slate-300 animate-pulse">
-    
   </div>
 </template>
 
