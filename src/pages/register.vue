@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full h-full flex flex-col py-3">
+  <div class="w-full flex flex-col dark:bg-inherit py-3">
 
     <div class="flex flex-col p-3 mb-4">
       <span class="text-3xl font-bold">Hello,</span>
