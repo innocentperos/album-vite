@@ -4,6 +4,7 @@ import PreviouUsers from "./src/pages/previous_users.vue"
 import LoginUser from "/src/pages/login_previous.vue"
 import Register from "/src/pages/register.vue"
 import Home from "/src/pages/Home.vue"
+import Chats from "/src/pages/Chats.vue"
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: "/home",
     component: Home,
     name: "home"
+  },
+  {
+    path:"/chats",
+    component:Chats,
+    name:"chats"
   }
 
 ]

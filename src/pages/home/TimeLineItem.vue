@@ -70,4 +70,5 @@
     let index = 1 + (_index % 4)
     return `/images/avatar${index}.jpg`
   }
+  
 </script>

@@ -1,6 +1,6 @@
 <template>
-  <IconButton loading class="fixed mb-3 bottom-16 right-0 mr-3 z-10 w-16 h-16 aspect-square shadow-xl rounded-full">
-    <Icon strip icon="bx-plus text-white text-2xl "></Icon>
+  <IconButton v-if="fab" :loading="fabLoading" @click="fabClick" class="fixed mb-3 bottom-16 right-0 mr-3 z-10 w-16 h-16 aspect-square shadow-xl rounded-full">
+    <Icon strip :icon="fab + ' text-white text-2xl'"></Icon>
   </IconButton>
   
   <div class="fixed bottom-0 left-0 right-0 w-full h-16 bg-slate-100 dark:bg-slate-800 dark:shadow-[4px_1px_60px_-1px_rgba(0,0,0,0.43)] shadow-[4px_1px_60px_-1px_rgba(229,231,235,.93)]  flex items-center justify-between px-3 p-1">
@@ -16,6 +16,20 @@
 
 <script setup>
   import { ref, computed } from "vue"
+  import router from "/router"
+  
+  const props = defineProps({
+    'modelValue':Number|String,
+    'fab':String,
+    'fabLoading':Boolean
+  })
+  const emits = defineEmits(["update:modelValue",'fab'])
+  
+  function fabClick(e){
+    e.stopPropagation()
+    emits("fab", e)
+  }
+  
   const actions = [
     "bx-home",
     "bx-search",
@@ -23,7 +37,9 @@
     "bx-message"
     ]
 
-  const selected = ref(0)
+  const selected = computed(function(){
+    return props.modelValue
+  })
 
   function bgStyle(index) {
     return {
@@ -38,8 +54,17 @@
 
     }
   }
-
+  
+  const CHATS = 3;
   function change(index) {
-    selected.value = index
+    if(selected.value==index) return
+    
+    emits("update:modelValue", index)
+    
+    if(index == CHATS){
+      router.push({
+        name:"chats"
+      })
+    }
   }
 </script>

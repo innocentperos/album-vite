@@ -1,8 +1,8 @@
 <template>
-  <div class="relative group">
+  <div class="relative group shrink-0 grow-0 ">
     <Avatar v-bind="props"/>
     
-    <div class="h-4 absolute aspect-square bg-indigo-700 rounded-full right-0 bottom-0 shadow-lg">
+    <div class="h-5 absolute aspect-square bg-indigo-700 rounded-full right-0 bottom-0 shadow-lg">
     </div>
     
   </div>
