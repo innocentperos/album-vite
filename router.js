@@ -5,7 +5,7 @@ import LoginUser from "/src/pages/login_previous.vue"
 import Register from "/src/pages/register.vue"
 import Home from "/src/pages/Home.vue"
 import Chats from "/src/pages/Chats.vue"
-
+import Chat from "/src/pages/Chat.vue"
 const routes = [
   {
     path: '/',
@@ -37,6 +37,11 @@ const routes = [
     path:"/chats",
     component:Chats,
     name:"chats"
+  },
+  {
+    path:"/chats/:id",
+    component:Chat,
+    name:"chat"
   }
 
 ]

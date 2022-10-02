@@ -33,7 +33,7 @@
   const actions = [
     "bx-home",
     "bx-search",
-    "bx-sun",
+    "bx-photo-album",
     "bx-message",
     "bx-power-off"
     ]
@@ -57,6 +57,7 @@
   }
   
   const CHATS = 3;
+  const HOME =0;
   function change(index) {
     if(selected.value==index) return
     
@@ -65,6 +66,10 @@
     if(index == CHATS){
       router.push({
         name:"chats"
+      })
+    }else if(index == HOME){
+      router.push({
+        name: "home"
       })
     }
   }

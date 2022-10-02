@@ -13,7 +13,7 @@
       </TimelineItem>
     </div>
     
-    <BottomNavigitor>
+    <BottomNavigitor v-model="selectedTab">
       
     </BottomNavigitor>
   </div>
@@ -24,4 +24,6 @@
   import router from "/router"
 
   import TimelineItem from "/src/pages/home/TimeLineItem.vue"
+  
+  const selectedTab = ref(0)
 </script>
