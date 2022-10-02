@@ -1,5 +1,9 @@
 <template>
+<<<<<<< HEAD
   <div class="w-full min-hh-full flex flex-col justify-center ">
+=======
+  <div class="w-full min-h-full flex flex-col justify-center ">
+>>>>>>> feature/auth
     
     <div class="h-32 w-32 aspect-square overflow-hidden relative m-3 rounded-md shadow shadow-indigo-500/10">
       <img class="absolute h-full w-full object-cover object-center top-0 left-0 " src="/images/icon.jpg" alt="">
@@ -19,14 +23,14 @@
 
     <Button @click="login" :loading="loading" class="m-3"> Login</Button>
 
-    <div class=" flex justify-center w-full items-center">
+    <div class=" flex justify-center w-full items-center dark:text-white">
       <div class="flex-grow h-px bg-gray-400 rounded-md"></div>
       <span class="flex-shrink px-2 tracking-wide ">OR</span>
       <div class="flex-grow h-px bg-gray-400 rounded-md"></div>
     </div>
 
     <div class="w-full flex flex-col items-center justify-center p-3">
-      <span class="text-sm">dont have an account</span>
+      <span class="text-sm ">dont have an account</span>
       <Button @click="register" :loading="loading" block class="m-3"> create one</Button>
       <span class="text-sm my-2 text-indigo-700" @click="previous">view accounts</span>
 

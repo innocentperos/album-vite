@@ -7,7 +7,7 @@
     </div>
 
     <div class="">
-      <div v-for="i in 4" @click="selectedUser = i" :key="i" class="flex items-center space-x-4 px-4 py-4 hover:bg-white" :class="{'bg-indigo-700/10':selectedUser==i}">
+      <div v-for="i in 4" @click="selectedUser = i" :key="i" class="flex items-center space-x-4 px-4 py-4 hover:bg-white hover:dark:bg-slate-900" :class="{'bg-indigo-700/10':selectedUser==i}">
         <Avatar small :src="'/images/avatar'+(i%4+1)+'.jpg'" alt=""/>
 
         <div class="flex flex-col flex-grow">
@@ -18,7 +18,7 @@
           </span>
 
         </div>
-        <div class="ml-auto h-8 aspect-square shadow-lg bg-white flex items-center justify-center text-slate-700 rounded-lg ring ring-transparent hover:ring-indigo-500/30 duration-200">
+        <div class="ml-auto h-8 aspect-square shadow-lg bg-white dark:bg-slate-700 flex items-center justify-center text-slate-700 dark:text-white rounded-lg ring ring-transparent hover:ring-indigo-500/30 duration-200">
           <span class="bx bx-dots-horizontal text-lg"></span>
         </div>
       </div>
