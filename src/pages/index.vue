@@ -1,10 +1,5 @@
 <template>
-<<<<<<< HEAD
-  <div class="w-full min-hh-full flex flex-col justify-center ">
-=======
   <div class="w-full min-h-full flex flex-col justify-center ">
->>>>>>> feature/auth
-    
     <div class="h-32 w-32 aspect-square overflow-hidden relative m-3 rounded-md shadow shadow-indigo-500/10">
       <img class="absolute h-full w-full object-cover object-center top-0 left-0 " src="/images/icon.jpg" alt="">
     </div>
