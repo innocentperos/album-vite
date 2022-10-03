@@ -1,4 +1,5 @@
 import { defineStore } from 'pinia'
+
 import {ref} from "vue"
 
 const Users = [
@@ -70,7 +71,10 @@ export const AVATARS = [
 
   ]
   
-export const WORDS = "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Magnam, est?".split(" ")
+export const WORDS = `The term social in regard to media suggests that platforms are user - centric and enable communal activity.As such, social media can be viewed as online facilitators or enhancers of human networks— webs of individuals who enhance social connectivity 
+Users usually access social media services through web - based apps on desktops or download services that offer social media functionality to their mobile devices(e.g., smartphones and tablets).As users engage with these electronic services, they create highly interactive platforms which individuals, communities, and organizations can share, co - create, discuss, participate, and modify user - generated or self - curated content posted online.[8][6][1] Additionally, social media are used to document memories, learn about and explore things, advertise oneself, and form friendships along with the growth of ideas from the creation of blogs, podcasts, videos, and gaming sites.[9] This changing relationship between humans and technology is the focus of the emerging field of technological self - studies. Some of the most popular social media websites, with more than 100 million registered users, include Facebook(and its associated Facebook Messenger), TikTok, WeChat, Instagram, QZone, Weibo, Twitter, Tumblr, Baidu Tieba, and LinkedIn.Depending on interpretation, other popular platforms that are sometimes referred to as social media services include YouTube, QQ, Quora, Telegram, WhatsApp, Signal, LINE, Snapchat, Pinterest, Viber, Reddit, Discord, VK, Microsoft Teams, and more.Wikis are examples of collaborative content creation.
+
+Social media outlets differ from traditional media`.split(" ")
 
 export function randomName() {
   return NAMES.random()

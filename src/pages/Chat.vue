@@ -2,7 +2,7 @@
   <div class="min-h-full w-full">
     <AppBar back title="Innocent Peros" sub-title="active">
       <template #actions>
-        <Avatar tiny></Avatar>
+        <UserAvatar :user-id="userId" tiny/>
       </template>
     </AppBar>
 
@@ -26,5 +26,11 @@
   </div>
 </template>
 <script setup>
+import UserAvatar from "/src/ui/UserAvatar.vue"
   import Message from "/src/ui/Message.vue"
+  
+  import router from "/router"
+  const currentRoute = router.currentRoute.value;
+  const userId = parseInt(currentRoute.params.id)
+  
 </script>

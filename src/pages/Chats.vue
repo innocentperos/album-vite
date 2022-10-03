@@ -10,7 +10,7 @@
 
 
       <div @click="view(i)" class="w-full flex px-3 py-4 relative" v-for="i in 16">
-        <UserAvatar  :src="AVATARS.random()" class="mb-auto" small></UserAvatar>
+        <UserAvatar :user-id="i"  :src="AVATARS.random()" class="mb-auto" small></UserAvatar>
         <div class="ml-2 flex flex-col">
           <span class="font-bold tracking-wider text-lg ">{{randomName()}} {{randomName()}}</span>
 
@@ -44,7 +44,7 @@
 <script setup>
   import UserAvatar from "/src/ui/UserAvatar.vue"
   import BottomNavigator from "/src/ui/BottomNavigator.vue"
-  import {randomName,random, randomText, AVATARS} from "/stores/usersData"
+  import {randomName,random, randomText, AVATARS} from "/stores/random"
   import router from "/router"
   
   import { ref } from "vue"

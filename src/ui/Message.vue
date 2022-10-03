@@ -17,7 +17,7 @@
   </div>
 </template>
 <script setup>
-  import {randomText, random} from "/stores/usersData"
+  import {randomText, random} from "/stores/random"
   
   const send = random(10)%2 == 1
   const loading = random(26)%2 ==0
