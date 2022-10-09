@@ -56,7 +56,7 @@
     classs[`text-white bg-${props.color}-700 rounded-md hover:ring-${props.color}-800/40`] = !props.text
     classs[`text-dark dark:text-white hover:text-${props.color}-500 hover:dark:text-indigo-300`] = props.text
     
-    console.log(classs)
+    
     return classs;
   })
 

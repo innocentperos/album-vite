@@ -3,17 +3,17 @@ import { getPosts } from "/providers/album-post.js"
 import { defineStore } from 'pinia'
 import { ref, reactive, computed } from "vue"
 
-const useStore = defineStore('storeId', {
-      // arrow function recommended for full type inference
-      state: () => {
+const useStore = defineStore('post', {
+  // arrow function recommended for full type inference
+  state: () => {
 
-        const posts = reactive({})
+    const posts = reactive({})
 
-        function addPost(post) {
+    function addPost(post) {
 
-          posts[post.id] = post
-          //alert(posts[post.id].id)
-      }
+      posts[post.id] = post
+      //alert(posts[post.id].id)
+    }
 
     function getPost(id) {
 
@@ -22,8 +22,16 @@ const useStore = defineStore('storeId', {
       return computed(() => { loading: true })
     }
 
+    function all() {
+      
+      return computed(() => {
+        return posts
+      })
+    }
+
     return {
       posts,
+      all: all,
       get: getPost,
       add: addPost
     }

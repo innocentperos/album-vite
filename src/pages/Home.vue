@@ -31,8 +31,17 @@
   const selectedTab = ref(0)
   const store = useStore()
   
-  const posts = store.posts
+  let posts = computed(function(){
+    if(!store.posts) return []
+    return store.posts
+  })
   
+  onMounted(function(){
+    init().then(function(){
+      
+    })
+    
+  })
   
   async function init(){
     try{
@@ -44,9 +53,5 @@
       
     }
   }
-  init()
-  watch(store.posts, function(){
-    console.log(Object.keys(store.posts))
-  })
   
 </script>
