@@ -1,42 +1,57 @@
 <template>
-  <div class="relative group shrink-0 grow-0 ">
-    <Avatar v-bind="props" :history="false" :src="actualUserAvatar"/>
-    
+  <div @click="click" class="relative group shrink-0 grow-0 rounded-full duration-300">
+    <Avatar v-bind="props" :history="ring" :src="actualUserAvatar" />
+
     <div v-if="history" class="h-5 absolute aspect-square bg-indigo-700 rounded-full right-0 bottom-0 shadow-lg">
+
     </div>
-    
+
+
   </div>
 </template>
 <script setup>
-  
-  import {computed} from "vue"
-  import {useUsersStore} from "/stores/users"
-  
+  import { computed, ref, watch } from "vue"
+  import { useUsersStore } from "/stores/users"
+  import { AVATARS } from "/stores/random"
+
   const props = defineProps({
-    user:Object,
-    userId:Number,
-    small:Boolean,
-    xsmall:Boolean,
-    tiny:Boolean,
-    size:Number | String,
+    user: Object,
+    userId: Number,
+    small: Boolean,
+    xsmall: Boolean,
+    tiny: Boolean,
+    xtiny: Boolean,
+    size: Number | String,
     history: Boolean,
-    normal:{
-      type:Boolean,
+    ring: Boolean,
+    normal: {
+      type: Boolean,
       default: true
     },
-    large: Boolean
+    large: Boolean,
+    propagate: Boolean
   })
-  
+
+  const emits = defineEmits(["click"])
+
   const usersStore = useUsersStore()
-  
-  const actualUserAvatar = computed(function(){
-    if(props.user) return props.user.avatar 
-    if(!props.userId && props.userId != 0) {
-      throw Error("Provide a user object or userId to UserAvatar")
+
+  const user = usersStore.get(props.userId)
+
+  const actualUserAvatar = computed(() => {
+    if(user.value.error){
+      return AVATARS.random()
     }
-    let c = usersStore.getUserAvatar(props.userId)
-    return c;
-    
+    if (user.value.loading) return "**"
+    if (user.value.id) {
+      let a = AVATARS[user.value.id]
+      return a
+    }
+    return ".."
   })
-  
+
+  function click(e) {
+    if (props.propagate == false) e.stopPropagation()
+    emits("click", e)
+  }
 </script>

@@ -21,7 +21,7 @@
 
           </span>
         </div>
-        <div class="ml-1 text-xs font-bold my-auto h-8  aspect-square rounded-full bg-indigo-700 shrink-0 flex items-center justify-center text-white mt-auto">
+        <div class="ml-auto text-xs font-bold my-auto h-8  aspect-square rounded-full bg-indigo-700 shrink-0 flex items-center justify-center text-white mt-auto">
           {{random(50)}}
         </div>
       </div>

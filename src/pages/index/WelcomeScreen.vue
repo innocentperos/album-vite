@@ -15,7 +15,7 @@
       <span class="text-sm tracking-wide">preparing your account</span>
     </div>
 
-    <div class="w-full p-3 mt-auto">
+    <div class="w-full md:w-64 p-3 mt-auto">
       <Button v-if='loaded' @click="emits('finish')" block>Finish</Button>
     </div>
   </div>

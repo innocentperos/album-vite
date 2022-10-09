@@ -21,10 +21,11 @@ import {random} from "./random"
    
    return {
      id:id,
-     user: random(50),
+     user: random(4) + 1,
      photos: random(16)+1,
      comments: random(3000),
     reactions: random(3000),
+    album:random(15),
     features
    }
  }

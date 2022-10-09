@@ -1,5 +1,5 @@
 <template>
-  <div class="min-h-screen min-w-full  bg-slate-100 dark:bg-slate-800 relative pb-16 md:pb-3">
+  <div class="md:pl-16 min-h-screen min-w-full  bg-slate-100 dark:bg-slate-800 relative pb-16 md:pb-3">
     
     <AppBar back>
       
@@ -8,43 +8,45 @@
       </template>
     </AppBar>
     <div class="space-y-4 p-2 pt-4">
-      <TimelineItem  :key="i.id" v-for="i in items" :item="i" class="shadow">
+      <TimelineItem  :key="id" v-for="{id} in posts" :id="id" class="shadow">
 
       </TimelineItem>
     </div>
     
-    <BottomNavigitor v-model="selectedTab">
+    <BottomNavigator v-model="selectedTab" />
       
-    </BottomNavigitor>
   </div>
 </template>
 
 <script setup>
-  import { onMounted, ref, reactive, computed } from "vue"
+  import { onMounted, ref, reactive, computed, watch } from "vue"
+  import useStore from "/stores/post"
   import router from "/router"
-
+  import {getPosts} from "/providers/album-post"
+  
+  
   import TimelineItem from "/src/pages/home/TimeLineItem.vue"
   
-  import useTimelineStore from "/stores/timelineStore"
-  import {random} from "/stores/random"
   
   const selectedTab = ref(0)
-  const timelineStore = useTimelineStore()
+  const store = useStore()
   
-  const items = timelineStore.multiple(getItemsId())
+  const posts = store.posts
   
-  function getItemsId(){
-    let ids = []
-    
-    while(ids.length < 20 ){
-      let id = random(100)
-      if(!ids.includes(id)){
-        ids.push(id)
-      }
+  
+  async function init(){
+    try{
+      let posts = await getPosts()
+      posts.forEach(post=>{
+        store.add(post)
+      })
+    }catch(error){
+      
     }
-    
-    return ids;
   }
-  
+  init()
+  watch(store.posts, function(){
+    console.log(Object.keys(store.posts))
+  })
   
 </script>

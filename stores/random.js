@@ -52,7 +52,40 @@ Array.generate = function({ from = 0, to = 1, step = 1 }) {
   for (let i = from; i < to; i = i + step) {
     array.push(i)
   }
+
   
+  return array
+}
+Array.randomArray = function(length, max = 100, min = 1 ) {
+  let array = []
+  while (array.length < length) {
+    
+    let c = (random(max))
+    c = c > min ? c : c + min
+    if(!array.includes(c)) array.push(c)
+  }
+  return array
+}
+
+export function uniqueArray(length, max = 100, min = 1) {
+  
+  let array = []
+  while (array.length < length) {
+
+    let c = (random(max))
+    c = c > min ? c : c + min
+    if (!array.includes(c)) array.push(c)
+  }
+  return array
+}
+
+export function randomArray(length, max = 100, min = 1) {
+  let array = []
+  for (let i = 0; i<length; i++){
+    let c = (random(max))
+    c = c > min ? c : c + min
+    array.push(c)
+  }
   return array
 }
 export const NAMES = [
@@ -71,9 +104,8 @@ export const AVATARS = [
 
   ]
   
-export const WORDS = `The term social in regard to media suggests that platforms are user - centric and enable communal activity.As such, social media can be viewed as online facilitators or enhancers of human networks— webs of individuals who enhance social connectivity 
-Users usually access social media services through web - based apps on desktops or download services that offer social media functionality to their mobile devices(e.g., smartphones and tablets).As users engage with these electronic services, they create highly interactive platforms which individuals, communities, and organizations can share, co - create, discuss, participate, and modify user - generated or self - curated content posted online.[8][6][1] Additionally, social media are used to document memories, learn about and explore things, advertise oneself, and form friendships along with the growth of ideas from the creation of blogs, podcasts, videos, and gaming sites.[9] This changing relationship between humans and technology is the focus of the emerging field of technological self - studies. Some of the most popular social media websites, with more than 100 million registered users, include Facebook(and its associated Facebook Messenger), TikTok, WeChat, Instagram, QZone, Weibo, Twitter, Tumblr, Baidu Tieba, and LinkedIn.Depending on interpretation, other popular platforms that are sometimes referred to as social media services include YouTube, QQ, Quora, Telegram, WhatsApp, Signal, LINE, Snapchat, Pinterest, Viber, Reddit, Discord, VK, Microsoft Teams, and more.Wikis are examples of collaborative content creation.
-
+export const WORDS = `The term social in regard to media suggests that platforms are user - centric and enable comm unal activity.As such, social media can be viewed as online facili tators or enhancers of human networks— webs of individuals who enhance social connec tivity 
+Users usually access social media ser vices through web - based apps on desk tops or down load services that offer social media functio nality to their mobile devices(e.g., smart phones and tablets As users engage with these electronic services, they create highly interactive platforms which indivi duals, commu nities, and organize actions can share, co - create, discuss, participate, and modify user - generated or self - curated content posted online Additio nally, social media are document memories, learn about and explore things, advertise oneself, and form friendships along with the growth of ideas from the creation of blogs, podcasts, videos, and gaming sites This changing relationship between humans and technology is the focus of the emerging field of technological self - studies. Some of the most popular social media websites, with more than 100 million registered users, include Facebook its associated Facebook Messenger, TikTok, WeChat, Instagram, QZone, Weibo, Twitter, Tumblr, Baidu Tieba, and LinkedIn.Depending on interpretation, other popular platforms that are some times referred to as social media services include YouTube, QQ, Quora, Telegram, WhatsApp, Signal, LINE, Snapchat, Pinterest, Viber, Reddit, Discord, VK, Microsoft Teams, and more.Wikis are examples of collaborative content creation. 
 Social media outlets differ from traditional media`.split(" ")
 
 export function randomName() {

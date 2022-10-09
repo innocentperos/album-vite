@@ -1,10 +1,24 @@
 import axios from "axios"
 
-const local ='localhost'
-const remote ='192.168.43.167'
+const local ='http://localhost:8000'
+const remote ='http://192.168.43.50:8000'
+
+export const URI = local;
+
 const instance = axios.create({
-  baseURL: 'http://127.0.0.1:8000/api/',
+  baseURL: `${URI}/api/`,
   timeout: 10000,
+  headers: buildHeaders()
 });
+
+function buildHeaders(){
+  let headers = {}
+  let authorization = localStorage.getItem("token")
+  if(authorization){
+    headers["Authorization"] = 'Token '+authorization
+  }
+  
+  return headers;
+}
 
 export default instance;

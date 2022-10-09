@@ -6,6 +6,12 @@ import Register from "/src/pages/register.vue"
 import Home from "/src/pages/Home.vue"
 import Chats from "/src/pages/Chats.vue"
 import Chat from "/src/pages/Chat.vue"
+import Albums from "/src/pages/Albums.vue"
+import NewAlbum from "/src/pages/NewAlbum.vue"
+import Album from "/src/pages/Album.vue"
+import NewPost from "/src/pages/NewPost.vue"
+
+
 const routes = [
   {
     path: '/',
@@ -42,6 +48,27 @@ const routes = [
     path:"/chats/:id",
     component:Chat,
     name:"chat"
+  },
+  {
+    path: "/albums",
+    component: Albums,
+    name: "albums"
+  },
+  {
+    path: "/album/new",
+    component: NewAlbum,
+    name: "new-album"
+  },
+  {
+    path: "/album/:id",
+      component: Album,
+      name: "view-album"
+  },
+  
+  {
+    path:"/post/:album/new",
+    component:NewPost,
+    name:"new-post"
   }
 
 ]

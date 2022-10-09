@@ -4,7 +4,7 @@
       <img class="absolute h-full w-full object-cover object-center top-0 left-0 " src="/images/icon.jpg" alt="">
     </div>
 
-    <Input class="my-3" label="Email Address" v-model="email" :message="email_error" :error="email_error!=''" right-icon="bx-at" type="email">
+    <Input class="my-3" label="Email Address" v-model="email" :message="email_error" :error="email_error!=''" left-icon="bx-at" type="email">
 
     </Input>
 
@@ -26,7 +26,7 @@
 
     <div class="w-full flex flex-col items-center justify-center p-3">
       <span class="text-sm ">dont have an account</span>
-      <Button @click="register" :loading="loading" block class="m-3"> create one</Button>
+      <Button @click="register"  block class="m-3"> create one</Button>
       <span class="text-sm my-2 text-indigo-700" @click="previous">view accounts</span>
 
     </div>

@@ -1,5 +1,7 @@
 import { defineStore } from 'pinia'
 import { ref, reactive, computed } from "vue"
+
+import { getUser } from "/providers/user"
 import { random, randomName, AVATARS } from "./random"
 
 
@@ -19,31 +21,34 @@ export const useUsersStore = defineStore('usersStore', {
   // arrow function recommended for full type inference
   state: () => {
     const users = reactive({})
+
     
-    function getUserAvatar(id){
-      if(users[id]){
-        return users[id].avatar;
-      }else{
-        return AVATARS.random()
+    async function loadUser(id){
+      try {
+        let _user = await getUser(id)
+        users[id] = _user
+      } catch (error) {
+        users[id] = { loading: false, error: true }
       }
     }
     
-    function getUser(id) {
-      let user = users[id];
-      if (!user) {
-        user = randomUser(id)
-      users[id] = user;
-      
+    function _getUser(id, compute = true) {
+      let user ;
+      if (!users[id]) {
+        users[id] = { loading: true }
+        loadUser(id)
       }
-      
-      return computed(()=>users[id])
-
+      if(!compute) return user
+      return computed(() => users[id])
+    }
+    
+    function getUserAvatar(id){
+      return AVATARS[id%9]
     }
 
     return {
       users,
-      getUser,
-      get: getUser,
+      get: _getUser,
       getUserAvatar,
     }
   },

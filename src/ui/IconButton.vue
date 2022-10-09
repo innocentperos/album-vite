@@ -1,5 +1,5 @@
 <template>
-  <button @click="click" :disabled="disabled" class="flex items-center justify-center" :class="classes">
+  <button @click="click" :disabled="disabled" class="flex items-center justify-center aspect-square " :class="classes">
 
     <div v-if="loading" :class="loaderStyles ">
 
@@ -24,6 +24,14 @@
     loading: {
       type: Boolean,
       default: false
+    },
+    small:Boolean,
+    large:Boolean,
+    medium:Boolean,
+    xlarge:Boolean,
+    color: {
+      type:String,
+      default:"indigo"
     }
   })
 
@@ -36,11 +44,19 @@
   })
   const classes = computed(function() {
     let classs = {
+      
       'min-h-10 ring ring-transparent aspect-square duration-300': true,
-      'text-white bg-indigo-700 rounded-md hover:ring-indigo-800/40': !props.text,
-      'text-dark dark:text-white hover:text-indigo-500 hover:dark:text-indigo-300': props.text
+      "h-8":props.small,
+      "h-14":props.large,
+      "h-16":props.xlarge,
+      "h-12":props.medium,
+      "h-10":(!props.small && !props.large && !props.medium && !props.xlarge),
     }
-
+    
+    classs[`text-white bg-${props.color}-700 rounded-md hover:ring-${props.color}-800/40`] = !props.text
+    classs[`text-dark dark:text-white hover:text-${props.color}-500 hover:dark:text-indigo-300`] = props.text
+    
+    console.log(classs)
     return classs;
   })
 

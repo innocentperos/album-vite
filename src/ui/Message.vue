@@ -1,6 +1,6 @@
 <template>
   
-  <div class=" p-2 w-full flex" :class="containerStyles(send)">
+  <div class=" p-2 md:py-6 w-full flex" :class="containerStyles(send)">
     
     <div class="shadow bg-gradient-to-br p-3 rounded-xl text-white" :class="bubbleStyles(send)">
       <span class="tracking-tight">
