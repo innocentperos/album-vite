@@ -8,9 +8,13 @@
       </template>
     </AppBar>
     <div class="space-y-4 p-2 pt-4">
-      <TimelineItem  :key="id" v-for="{id} in posts" :id="id" class="shadow">
+      
+      
+      <TimeLineSkeloton v-if="loading" v-for="i in 4" :key="k" />
+      <TimelineItem v-else :key="id" v-for="{id} in posts" :id="id" class="shadow">
 
       </TimelineItem>
+      <TimeLineSkeloton />
     </div>
     
     <BottomNavigator v-model="selectedTab" />
@@ -27,9 +31,11 @@
   
   import TimelineItem from "/src/pages/home/TimeLineItem.vue"
   
+  import TimeLineSkeloton from "/src/pages/home/TimeLineItemSkeleton.vue"
   
   const selectedTab = ref(0)
   const store = useStore()
+  const loading = ref(true)
   
   let posts = computed(function(){
     if(!store.posts) return []
@@ -51,6 +57,10 @@
       })
     }catch(error){
       
+    }finally{
+      setTimeout(()=>{
+        loading.value = false
+      },3000)
     }
   }
   

@@ -41,4 +41,5 @@ app.component("Avatar", Avatar)
 .component("Spinner", Spinner)
 
 .component("Fab", Fab)
-app.mount('#app')
+
+  app.mount('#app')

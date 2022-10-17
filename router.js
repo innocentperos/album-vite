@@ -1,15 +1,29 @@
 import { createRouter, createWebHashHistory } from "vue-router"
+import { defineAsyncComponent } from "vue"
+
 import Index from "./src/pages/index.vue"
-import PreviouUsers from "./src/pages/previous_users.vue"
-import LoginUser from "/src/pages/login_previous.vue"
-import Register from "/src/pages/register.vue"
-import Home from "/src/pages/Home.vue"
-import Chats from "/src/pages/Chats.vue"
-import Chat from "/src/pages/Chat.vue"
-import Albums from "/src/pages/Albums.vue"
-import NewAlbum from "/src/pages/NewAlbum.vue"
-import Album from "/src/pages/Album.vue"
-import NewPost from "/src/pages/NewPost.vue"
+
+import MainHome from "/src/pages/_Home.vue"
+
+const PreviouUsers = defineAsyncComponent(() => import("./src/pages/previous_users.vue"))
+
+const LoginUser = defineAsyncComponent(() => import("/src/pages/login_previous.vue"))
+
+const Register = defineAsyncComponent(() => import("/src/pages/register.vue"))
+
+const Home = defineAsyncComponent(() => import("/src/pages/Home.vue"))
+
+const Chats = defineAsyncComponent(() => import("/src/pages/Chats.vue"))
+
+const Chat = defineAsyncComponent(() => import("/src/pages/Chat.vue"))
+
+const Albums = defineAsyncComponent(() => import("/src/pages/Albums.vue"))
+
+const NewAlbum = defineAsyncComponent(() => import("/src/pages/NewAlbum.vue"))
+
+const Album = defineAsyncComponent(() => import("/src/pages/Album.vue"))
+
+const NewPost = defineAsyncComponent(() => import("/src/pages/NewPost.vue"))
 
 
 const routes = [
@@ -37,22 +51,22 @@ const routes = [
   {
     path: "/home",
     component: Home,
-    name: "home"
-  },
-  {
-    path:"/chats",
-    component:Chats,
-    name:"chats"
-  },
-  {
-    path:"/chats/:id",
-    component:Chat,
-    name:"chat"
+    name:"home"
   },
   {
     path: "/albums",
     component: Albums,
     name: "albums"
+  },
+  {
+    path: "/chats",
+    component: Chats,
+    name: "chats"
+  },
+  {
+    path: "/chats/:id",
+    component: Chat,
+    name: "chat"
   },
   {
     path: "/album/new",
@@ -61,14 +75,14 @@ const routes = [
   },
   {
     path: "/album/:id",
-      component: Album,
-      name: "view-album"
+    component: Album,
+    name: "view-album"
   },
-  
+
   {
-    path:"/post/:album/new",
-    component:NewPost,
-    name:"new-post"
+    path: "/post/:album/new",
+    component: NewPost,
+    name: "new-post"
   }
 
 ]

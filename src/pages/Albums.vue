@@ -20,7 +20,8 @@
       </div>
 
     </div>
-
+    
+    
     <BottomNavigator v-model="selectedTap" fab="bx-plus" @fab="newAlbum" />
 
   </div>
