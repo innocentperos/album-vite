@@ -90,8 +90,12 @@
     if(resp.success){
       localStorage.setItem("token", resp.data.token)
       
+      const route = router.currentRoute.value 
+      
+      console.log(route.query)
+      
       user.value = resp.data.user
-      showWelcome.value = true
+      //showWelcome.value = true
     }
   }
   

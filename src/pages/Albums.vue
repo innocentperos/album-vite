@@ -1,5 +1,5 @@
 <template>
-  <div class="w-full md:pl-16">
+  <div class="w-full">
     <AppBar class="" title="Albums">
       <template #actions>
         <IconButton icon="bx-sort text-2xl"></IconButton>
@@ -8,12 +8,12 @@
 
 
 
-    <div class="py-3 px-1 mb-16 ">
+    <div class="py-3 px-1">
       <div v-if="loading" class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20 h-full w-full flex items-center justify-center bg-slate-300/60">
         <Spinner></Spinner>
 
       </div>
-      <div v-else class="grid gap-y-3 gap-2 md:grid-cols-4 lg:grid-cols-5 grid-cols-2">
+      <div v-else class="grid gap-y-3 gap-2 md:grid-cols-4 lg:grid-cols-5 grid-cols-2 px-1">
 
         <AlbumItem v-for="{id} in albums" :key="id" :id="id" :index="id"></AlbumItem>
 
@@ -21,8 +21,7 @@
 
     </div>
     
-    
-    <BottomNavigator v-model="selectedTap" fab="bx-plus" @fab="newAlbum" />
+    <Fab class="bottom-16 right-0 m-3" large icon="bx-plus" @click="newAlbum"/>
 
   </div>
 </template>

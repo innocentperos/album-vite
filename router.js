@@ -1,17 +1,16 @@
 import { createRouter, createWebHashHistory } from "vue-router"
 import { defineAsyncComponent } from "vue"
 
-import Index from "./src/pages/index.vue"
+import Home from "/src/pages/Home.vue"
 
-import MainHome from "/src/pages/_Home.vue"
-
+const Login = defineAsyncComponent(()=> import("./src/pages/login.vue"))
 const PreviouUsers = defineAsyncComponent(() => import("./src/pages/previous_users.vue"))
 
 const LoginUser = defineAsyncComponent(() => import("/src/pages/login_previous.vue"))
 
 const Register = defineAsyncComponent(() => import("/src/pages/register.vue"))
 
-const Home = defineAsyncComponent(() => import("/src/pages/Home.vue"))
+const Feeds = defineAsyncComponent(() => import("/src/pages/Feeds.vue"))
 
 const Chats = defineAsyncComponent(() => import("/src/pages/Chats.vue"))
 
@@ -28,8 +27,8 @@ const NewPost = defineAsyncComponent(() => import("/src/pages/NewPost.vue"))
 
 const routes = [
   {
-    path: '/',
-    component: Index,
+    path: '/login',
+    component: Login,
     name: "login"
   },
   {
@@ -49,19 +48,25 @@ const routes = [
     name: "register"
   },
   {
-    path: "/home",
+    path: "/",
     component: Home,
-    name:"home"
-  },
-  {
-    path: "/albums",
-    component: Albums,
-    name: "albums"
-  },
-  {
-    path: "/chats",
-    component: Chats,
-    name: "chats"
+    children: [
+      {
+        path: "",
+        component: Feeds,
+        name: "home"
+      },
+     {
+       path: "albums",
+       component: Albums,
+       name: "albums"
+     },
+     {
+       path: "chats",
+       component: Chats,
+       name: "chats"
+     },
+    ]
   },
   {
     path: "/chats/:id",
