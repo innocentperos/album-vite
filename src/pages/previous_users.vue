@@ -40,7 +40,7 @@
 <script setup>
   import router from "/router"
   import Image from "/src/ui/Image.vue"
-  import Avatar from "/src/ui/Avatar.vue"
+  import Avatar from "/src/ui/avatar.vue"
   import {ref} from "vue"
   
   function login(){

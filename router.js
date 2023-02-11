@@ -2,28 +2,17 @@ import { createRouter, createWebHashHistory } from "vue-router"
 import { defineAsyncComponent } from "vue"
 
 import Home from "/src/pages/Home.vue"
-
-const Login = defineAsyncComponent(()=> import("./src/pages/login.vue"))
-const PreviouUsers = defineAsyncComponent(() => import("./src/pages/previous_users.vue"))
-
-const LoginUser = defineAsyncComponent(() => import("/src/pages/login_previous.vue"))
-
-const Register = defineAsyncComponent(() => import("/src/pages/register.vue"))
-
-const Feeds = defineAsyncComponent(() => import("/src/pages/Feeds.vue"))
-
-const Chats = defineAsyncComponent(() => import("/src/pages/Chats.vue"))
-
-const Chat = defineAsyncComponent(() => import("/src/pages/Chat.vue"))
-
-const Albums = defineAsyncComponent(() => import("/src/pages/Albums.vue"))
-
-const NewAlbum = defineAsyncComponent(() => import("/src/pages/NewAlbum.vue"))
-
-const Album = defineAsyncComponent(() => import("/src/pages/Album.vue"))
-
-const NewPost = defineAsyncComponent(() => import("/src/pages/NewPost.vue"))
-
+import Login from "/src/pages/Login.vue"
+import PreviouUsers from "/src/pages/previous_users.vue"
+import LoginUser from "/src/pages/login_previous.vue"
+import  Register from "/src/pages/register.vue"
+import  Feeds from "/src/pages/Feeds.vue"
+import Chats from "/src/pages/Chats.vue"
+import  Chat from "/src/pages/Chat.vue"
+import Albums from "/src/pages/Albums.vue"
+import NewAlbum from "/src/pages/NewAlbum.vue"
+import Album from "/src/pages/Album.vue"
+import NewPost from "/src/pages/NewPost.vue"
 
 const routes = [
   {
